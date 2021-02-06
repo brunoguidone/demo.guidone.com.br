@@ -12,7 +12,7 @@ pipeline {
             agent { label 'linux-build-agent' }
             steps {
                 checkout scm
-                sh 'mvn build'
+                sh 'mvn install -DskipTests'
                 stash includes: '**/target/*.war', name: 'app' 
             }
         }
